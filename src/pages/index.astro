@@ -1,7 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
 const pageTitle = "Home Page";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
   <h2>私の素晴らしいブログのサブタイトル</h2>
+  <div>
+		<h3>`client:load`をつけていないので、インタラクティブな挙動にならない</h3>
+    <Greeting messages={["どうも", "こんにちは", "初めまして", "ようこそ"]} />
+  </div>
+	<div>
+		<h3>`client:load`をつけているので、インタラクティブに動く</h3>
+    <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  </div>
 </BaseLayout>
